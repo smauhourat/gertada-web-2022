@@ -1,0 +1,94 @@
+<header>
+  <nav
+    class='fixed top-0 left-0 flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-[#3c4046]'
+  >
+    <div class='py-4'>
+      <a href='#'><img src='./images/logo.png' alt='Gertada' class='h-10' /></a>
+    </div>
+
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      id='menu-button'
+      class='h-6 w-6 cursor-pointer md:hidden block text-white'
+      fill='none'
+      viewBox='0 0 24 24'
+      stroke='currentColor'
+    >
+      <path
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        stroke-width='2'
+        d='M4 6h16M4 12h16M4 18h16'></path>
+    </svg>
+
+    <div class='hidden w-full md:flex md:items-center md:w-auto' id='menu'>
+      <ul class='pt-4 text-base md:flex md:justify-between md:pt-0'>
+        <li>
+          <a
+            class='md:p-4 block text-white hover:text-white-400 hover:border-gray-200 hover:bg-[#191a1e] hover:rounded'
+            href='#'
+            id='item1'>Features</a
+          >
+        </li>
+        <li>
+          <a
+            class='md:p-4 block text-white hover:text-white-400 hover:border-gray-200 hover:bg-[#191a1e] hover:rounded'
+            href='#'>Pricing</a
+          >
+        </li>
+        <li>
+          <a
+            class='md:p-4 block text-white hover:text-white-400 hover:border-gray-200 hover:bg-[#191a1e] hover:rounded'
+            href='#'>Customers</a
+          >
+        </li>
+        <li>
+          <a
+            class='md:p-4 block text-white hover:text-white-400 hover:border-gray-200 hover:bg-[#191a1e] hover:rounded'
+            href='#'>Blog</a
+          >
+        </li>
+        <li>
+          <a class='md:p-4 block hover:text-white-900 text-white' href='#'
+            >Sign Up</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<div class='px-4'>
+  <div
+    class='flex justify-center items-center bg-white mx-auto max-w-2xl rounded-lg my-16 p-16'
+  >
+    <h1 class='text-2xl font-medium'>Responsive Navbar with TailwindCSS</h1>
+  </div>
+</div>
+
+<script>
+  // behavior of hamburger button
+  const button = document.querySelector("#menu-button");
+  const menu = document.querySelector("#menu");
+  const item1 = document.querySelector("#item1");
+
+  function toggleMenu(menu) {
+    menu.classList.toggle("hidden");
+  }
+
+  if (button)
+    button.addEventListener("click", () => {
+      toggleMenu(menu);
+    });
+
+  // behavior of responsive menu items
+  const items = menu?.getElementsByTagName("li");
+  if (items) {
+    for (let i = 0; i <= items.length - 1; i++) {
+      let item = items[i].getElementsByTagName("a")[0];
+      item.addEventListener("click", () => {
+        toggleMenu(menu);
+      });
+    }
+  }
+</script>
